@@ -10,20 +10,21 @@ import java.net.Socket;
  * @Author: Noah @Date: 2024/6/27 17:39 @Description:
  */
 public class PosUtil {
-    //定义编码方式 p
+    //定义编码方式
     private static String encoding = null;
-    private Socket sock = null;
     // 通过socket流进行读写
+    private Socket sock = null;
     private OutputStream socketOut = null;
     private OutputStreamWriter writer = null;
-    /*
-    初始化Pos实例
-    @param ip 打印机IP
-    @param port 打印机端口号
-    @param encoding 编码
-@throws IOException
-*/
-    public PosUtil(String ip, int port, String encoding) throws IOException {
+
+  /**
+   *   初始化Pos实例
+   *     @param ip 打印机IP
+   *     @param port 打印机端口号
+   *     @param encoding 编码
+   *     @throws IOException
+   */
+  public PosUtil(String ip, int port, String encoding) throws IOException {
         sock = new Socket(ip, port);
         socketOut = new DataOutputStream(sock.getOutputStream());
         this.encoding = encoding;
@@ -32,7 +33,12 @@ public class PosUtil {
     /**
 
      关闭IO流和Socket
-     @throws IOException */ protected void closeIOAndSocket() throws IOException { writer.close(); socketOut.close(); sock.close(); }
+     @throws IOException */
+    protected void closeIOAndSocket() throws IOException {
+        writer.close();
+        socketOut.close();
+        sock.close();
+    }
     /**
 
      打印二维码

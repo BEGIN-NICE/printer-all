@@ -18,7 +18,7 @@ public class XPrinterTest {
         pos.printTabSpace(2);
         pos.printWordSpace(1);
         pos.printTextBig(0x10,0x01);
-        pos.printText("**测试店铺");
+        pos.printText("测试店铺");
 
         pos.printLocation(0);
         pos.printTextNewLine("----------------------------------------------");
@@ -45,7 +45,7 @@ public class XPrinterTest {
         pos.printLocation(1);
         pos.printLine(2);
         //打印二维码
-        pos.qrCode("http://blog.csdn.net/haovip123");
+        pos.qrCode("orderId=1234567890");
 
         //切纸
         pos.feedAndCut();
